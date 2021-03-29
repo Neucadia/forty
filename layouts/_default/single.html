@@ -18,10 +18,17 @@
                             <header class="major">
                                 <h1>{{ .Title}}</h1>
                             </header>
-                            {{ with .Params.link }}
+                            {{ if .Params.link }}
+                            {{ $linkText := "Learn More"}}
                               <ul class="actions fit small">
                                 <li>
-                                  <a href="{{ . }}" class="button icon fa-external-link">Learn more</a>
+                                  <a href="{{ .Params.link }}" class="button icon fa-external-link">
+                                    {{ if .Params.linkText }}
+                                      {{.Params.linkText}}
+                                    {{else}}
+                                      {{$linkText}}
+                                    {{end}}
+                                  </a>
                                 </li>
                               </ul>
                             {{ end }}
