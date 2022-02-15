@@ -5,6 +5,20 @@
                 <h2>{{ .Site.Params.Two.title}}</h2>
             </header>
             <p>{{ .Site.Params.Two.subtitle }}</p>
+            <div class="row">
+                <div class="col-8 col-12-small">
+                    <h3>{{ .Site.Params.Two.partnerTitle }}</h3>
+                </div>
+                <div class="col-4 col-10-small">
+                    <div class="row">
+                        {{ range .Site.Params.Two.partners }}
+                            <div class="col-6">
+                                <span class="image fit"><img src="{{ .url | absURL }}" alt="{{ .name }}" /></span>
+                            </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
             <ul class="actions">
                 <li><a href="{{ .Site.Params.Two.url | absURL}}" class="button next">{{ .Site.Params.Two.buttonText }}</a></li>
             </ul>
